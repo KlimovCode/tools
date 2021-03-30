@@ -51,17 +51,11 @@ foreach ($brends as $brend) {
             }
             // GET images uri
             foreach ($temp_rugs as $temp_rug) {
-                foreach ($rugs as $rug) {
-                    if ($rug == '.' || $rug == '..' || preg_match('/^(logo\.)/', $rug) || preg_match('/(\.txt)$/', $rug)) { continue; }
-                    if( preg_match('/big-'. $temp_rug . '/', $rug) ) {
-                        $rug_big_img = 'capes/' . $brend . '/' . $model . '/' . $rug;
-                    }
-                    if( preg_match('/small-'. $temp_rug . '/', $rug) ) {
-                        $rug_sm_img = 'capes/'. $brend . '/' . $model . '/' . $rug;
-                    }
-                }
+                $rug_big_img = 'capes/'. $brend . '/' . $model . '/big-' . $temp_rug . '.jpg';
+                $rug_sm_img = 'capes/'. $brend . '/' . $model . '/small-' . $temp_rug . '.jpg';
+
                 $stmt->execute();
-                echo $model_id . '<br>' . $temp_rug . '<br>' . $rug_big_img . '<br>' . $rug_sm_img . '<br>';
+                echo $model_id . '<br>' . $model . '<br>' . $temp_rug . '<br>' . $rug_big_img . '<br>' . $rug_sm_img . '<br>';
             }
             echo '<hr>';
         }
